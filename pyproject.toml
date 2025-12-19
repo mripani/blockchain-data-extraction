@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "blockchain-data"
+version = "0.1.0"
+description = "Blockchain data extraction and processing toolkit"
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/blockchain_data"]
+
+[dependency-groups]
+core = [
+    "cryo>=0.3.2",
+    "deltalake>=1.2.1",
+    "maturin>=1.10.2",
+    "polars>=1.36.1",
+    "pyarrow>=22.0.0",
+    "requests>=2.32.5",
+]
+dev = [
+    "ruff>=0.14.9",
+]
+
+[tool.uv]
+default-groups = ['core', 'dev']
